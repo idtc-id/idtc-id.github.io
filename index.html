@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDTC — Indonesia Digital Twin Community</title>
+<meta name="description" content="Indonesia Digital Twin Community (IDTC) — wadah kolaborasi pemerintah, akademisi, industri, dan komunitas untuk membangun ekosistem digital twin Indonesia melalui pilot project nyata.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#konten">Langsung ke konten</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#beranda" class="brand">
+      <img src="assets/img/logo.png" alt="Logo IDTC" class="brand-logo">
+      <span class="brand-text">
+        <strong>IDTC</strong>
+        <small>Indonesia Digital Twin Community</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#struktur">Struktur</a>
+      <a href="#pokja">Pokja</a>
+      <a href="#galeri">Galeri Produk</a>
+      <a href="#bergabung">Bergabung</a>
+      <a href="https://github.com/idtc-id" target="_blank" rel="noopener" class="nav-cta">GitHub Org ↗</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="konten">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="beranda">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">Connect · Collaborate · Innovate</p>
+      <h1 class="reveal">Satu Data, Satu Visi,<br>Satu Masa Depan untuk Indonesia</h1>
+      <p class="hero-desc reveal">
+        IDTC adalah wadah kolaborasi praktisi pemerintah, akademisi, BUMN, dan swasta
+        untuk membangun ekosistem <strong>Digital Twin Indonesia</strong> — dibuktikan lewat
+        pilot project yang nyata, terukur, dan bisa direplikasi.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#bergabung" class="btn btn-primary">Gabung Komunitas</a>
+        <a href="#struktur" class="btn btn-ghost">Lihat Struktur Organisasi</a>
+      </div>
+      <ul class="hero-badges reveal">
+        <li>Periode Kepengurusan 2026–2029</li>
+        <li>3 Kelompok Kerja Aktif</li>
+        <li>Kolaborasi Pemerintah · Akademisi · Industri · Komunitas</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TENTANG ============ -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <span class="section-tag reveal">Tentang IDTC</span>
+      <h2 class="section-title reveal">Membangun ekosistem Digital Twin lewat kolaborasi nyata</h2>
+      <p class="section-lead reveal">
+        Indonesia Digital Twin Community menghubungkan seluruh anggota untuk berbagi informasi,
+        pengetahuan, dan peluang kolaborasi dalam membangun ekosistem digital twin di Indonesia —
+        untuk infrastruktur, lingkungan, dan masyarakat yang lebih baik.
+      </p>
+
+      <div class="principles-grid">
+        <article class="principle-card reveal">
+          <div class="principle-icon" data-icon="globe"></div>
+          <h3>Netral Platform</h3>
+          <p>Mengutamakan standar terbuka dan interoperabilitas antar sistem dan sektor.</p>
+        </article>
+        <article class="principle-card reveal">
+          <div class="principle-icon" data-icon="shield"></div>
+          <h3>Data Sesuai Izin</h3>
+          <p>Data milik mitra hanya digunakan sesuai kesepakatan dan kebijakan yang berlaku.</p>
+        </article>
+        <article class="principle-card reveal">
+          <div class="principle-icon" data-icon="doc"></div>
+          <h3>Terbuka & Terdokumentasi</h3>
+          <p>Hasil dan pembelajaran didokumentasikan secara terbuka agar bisa direplikasi.</p>
+        </article>
+        <article class="principle-card reveal">
+          <div class="principle-icon" data-icon="people"></div>
+          <h3>Setara & Konstruktif</h3>
+          <p>Semua anggota memiliki ruang yang sama untuk berkontribusi dan berkembang.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STRUKTUR ORGANISASI ============ -->
+  <section class="section section-alt" id="struktur">
+    <div class="container">
+      <span class="section-tag reveal">Struktur Kepengurusan 2026–2029</span>
+      <h2 class="section-title reveal">Kepemimpinan, koordinasi, dan pelaksanaan program</h2>
+      <p class="section-lead reveal">
+        Klik setiap tab untuk menjelajahi struktur organisasi IDTC secara interaktif, atau lihat
+        poster lengkapnya.
+      </p>
+
+      <div class="struktur-tabs reveal" role="tablist" aria-label="Struktur organisasi">
+        <button class="tab-btn is-active" role="tab" aria-selected="true" data-tab="pembina">Dewan Pembina</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="pengurus">Pengurus Inti</button>
+        <button class="tab-btn" role="tab" aria-selected="false" data-tab="pokja-struktur">Ketua Pokja</button>
+      </div>
+
+      <div id="strukturPanel" class="struktur-panel reveal" aria-live="polite">
+        <!-- filled by JS -->
+      </div>
+
+      <button class="poster-link" id="openPosterStruktur" type="button">
+        🖼️ Lihat poster struktur kepengurusan lengkap
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ POKJA ============ -->
+  <section class="section" id="pokja">
+    <div class="container">
+      <span class="section-tag reveal">Kelompok Kerja</span>
+      <h2 class="section-title reveal">Tiga Pokja, satu tujuan bersama</h2>
+      <p class="section-lead reveal">
+        Setiap Pokja punya fokus dan output kerja masing-masing, didukung Tim Sekjen dan
+        Sekretariatan. Klik kartu untuk melihat detail fokus pembahasan &amp; output utama.
+      </p>
+
+      <div id="pokjaGrid" class="pokja-grid reveal">
+        <!-- filled by JS -->
+      </div>
+
+      <div id="unitPendukungGrid" class="unit-grid reveal">
+        <!-- filled by JS -->
+      </div>
+
+      <button class="poster-link" id="openPosterWA" type="button">
+        🖼️ Lihat poster struktur grup WhatsApp &amp; fungsi lengkap
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ GALERI PRODUK ============ -->
+  <section class="section section-alt" id="galeri">
+    <div class="container">
+      <span class="section-tag reveal">Galeri Produk Pokja</span>
+      <h2 class="section-title reveal">Karya, dokumen, dan output dari setiap Pokja</h2>
+      <p class="section-lead reveal">
+        Kumpulan produk nyata yang dihasilkan Pokja 1, 2, dan 3 — dari standar &amp; kebijakan,
+        pilot project, hingga materi pengembangan SDM.
+      </p>
+
+      <div class="gallery-filters reveal" id="galleryFilters" role="tablist" aria-label="Filter galeri produk">
+        <button class="filter-btn is-active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="pokja1">Pokja 1 · Standar &amp; Kebijakan</button>
+        <button class="filter-btn" data-filter="pokja2">Pokja 2 · Pilot Project</button>
+        <button class="filter-btn" data-filter="pokja3">Pokja 3 · SDM &amp; Ekosistem</button>
+      </div>
+
+      <div id="galleryGrid" class="gallery-grid reveal">
+        <!-- filled by JS -->
+      </div>
+
+      <p class="gallery-note reveal">
+        Punya produk Pokja yang belum tampil di sini? Tambahkan lewat
+        <a href="https://github.com/idtc-id/idtc-id.github.io" target="_blank" rel="noopener">pull request</a>
+        ke berkas <code>data/produk.json</code> — lihat panduan di README repo ini.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ BERGABUNG ============ -->
+  <section class="section" id="bergabung">
+    <div class="container">
+      <span class="section-tag reveal">Ikut Berkontribusi</span>
+      <h2 class="section-title reveal">Cara bergabung dengan IDTC</h2>
+
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Kirim username GitHub Anda</h3>
+            <p>Hubungi pengurus Pokja terkait agar akun Anda ditambahkan ke organisasi <a href="https://github.com/idtc-id" target="_blank" rel="noopener">idtc-id</a>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Baca panduan GitHub untuk pemula</h3>
+            <p>Pelajari alur kerja dasar di <a href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">pokja2-handbook</a> sebelum mulai berkontribusi.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Ikut diskusi &amp; ambil issue</h3>
+            <p>Gabung tab <strong>Discussions</strong> di repo handbook, atau ambil issue berlabel <code>good-first-issue</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="repo-links reveal">
+        <a class="repo-card" href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">
+          <strong>pokja2-handbook</strong>
+          <span>Tujuan, alur kerja, seleksi pilot, kebijakan data, dan diskusi komunitas.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/idtc-id/pilot-template" target="_blank" rel="noopener">
+          <strong>pilot-template</strong>
+          <span>Template standar untuk membuat repo pilot project baru.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/idtc-id" target="_blank" rel="noopener">
+          <strong>Semua repo idtc-id</strong>
+          <span>Jelajahi seluruh repositori organisasi IDTC di GitHub.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/img/logo.png" alt="Logo IDTC" class="brand-logo">
+      <p>Indonesia Digital Twin Community<br>Untuk Infrastruktur, Lingkungan, dan Masyarakat yang Lebih Baik.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Tautan</h4>
+      <a href="#tentang">Tentang</a>
+      <a href="#struktur">Struktur Organisasi</a>
+      <a href="#pokja">Kelompok Kerja</a>
+      <a href="#galeri">Galeri Produk</a>
+    </div>
+    <div class="footer-links">
+      <h4>GitHub</h4>
+      <a href="https://github.com/idtc-id" target="_blank" rel="noopener">Organisasi idtc-id</a>
+      <a href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">Pokja 2 Handbook</a>
+      <a href="https://github.com/idtc-id/pilot-template" target="_blank" rel="noopener">Pilot Template</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>People · Data · Places · A Brighter Indonesia</p>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Tutup">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

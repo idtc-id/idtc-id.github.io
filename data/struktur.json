@@ -1,0 +1,129 @@
+{
+  "dewanPembina": {
+    "title": "Dewan Pembina",
+    "desc": "Arah strategis, nasihat, dan pengawasan.",
+    "ketua": { "nama": "Nazib Faizal", "peran": "Ketua Dewan Pembina" },
+    "unit": [
+      { "nama": "Dewan Pengarah", "desc": "Arah strategis dan pengawasan." },
+      { "nama": "Dewan Pakar", "desc": "Kajian ilmiah, riset, dan rekomendasi." }
+    ]
+  },
+  "pengurus": {
+    "title": "Pengurus IDTC 2026–2029",
+    "desc": "Kepemimpinan, koordinasi, dan pelaksanaan program.",
+    "ketua": { "nama": "Benni Aguscandra", "peran": "Ketua IDTC" },
+    "wakil": [
+      { "nama": "Komang Sri Hartini", "peran": "Wakil Ketua I" },
+      { "nama": "Syahrudin", "peran": "Wakil Ketua II" }
+    ],
+    "sekjen": [
+      { "nama": "Muhammad Ihsan", "peran": "Sekretaris Jenderal I" },
+      { "nama": "Teguh Fayakun Alif", "peran": "Sekretaris Jenderal II" }
+    ],
+    "sekretariat": { "nama": "Susi Asiatin", "peran": "Ketua Tim Sekretariat" }
+  },
+  "pokja": [
+    {
+      "id": "pokja1",
+      "nomor": 1,
+      "nama": "Standar & Kebijakan",
+      "slogan": "Membangun fondasi tata kelola",
+      "warna": "teal",
+      "ketua": { "nama": "Deni Suwardhi", "peran": "Ketua Pokja 1" },
+      "wakil": [
+        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+      ],
+      "fokus": [
+        "Standardisasi Digital Twin",
+        "Data standard & interoperability",
+        "Tata kelola",
+        "Kebijakan & regulasi",
+        "Framework / guideline",
+        "Harmonisasi lintas sektor",
+        "Rekomendasi kebijakan"
+      ],
+      "output": ["Standar", "Guideline", "Framework", "Policy brief"]
+    },
+    {
+      "id": "pokja2",
+      "nomor": 2,
+      "nama": "Pilot Project",
+      "slogan": "Membuktikan melalui implementasi nyata",
+      "warna": "orange",
+      "ketua": { "nama": "Tenty Melvianti Legarias", "peran": "Ketua Pokja 2" },
+      "wakil": [
+        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+      ],
+      "fokus": [
+        "Identifikasi pilot project",
+        "Seleksi lokasi/mitra",
+        "Perencanaan pilot",
+        "Integrasi data & teknologi",
+        "Implementasi",
+        "Pengujian",
+        "Evaluasi manfaat/dampak",
+        "Dokumentasi & replikasi"
+      ],
+      "output": ["Pilot project Digital Twin yang nyata dan terukur", "Dokumentasi dan model replikasi"]
+    },
+    {
+      "id": "pokja3",
+      "nomor": 3,
+      "nama": "SDM & Ekosistem",
+      "slogan": "Membangun kapasitas dan ekosistem",
+      "warna": "purple",
+      "ketua": { "nama": "Gilang Widya Wisaksana", "peran": "Ketua Pokja 3" },
+      "wakil": [
+        { "nama": "Chintia Dewi", "peran": "Wakil Ketua Pokja – Pemerintahan" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+      ],
+      "fokus": [
+        "Training & workshop",
+        "Sertifikasi",
+        "Knowledge sharing",
+        "Expert session",
+        "Riset & inovasi",
+        "Pengembangan talenta",
+        "Kolaborasi kampus",
+        "Kolaborasi industri",
+        "Pengembangan komunitas"
+      ],
+      "output": ["SDM yang kompeten", "Knowledge & riset", "Ekosistem Digital Twin"]
+    }
+  ],
+  "unitPendukung": [
+    {
+      "id": "sapujagad",
+      "nama": "Tim Sekjen – Sapujagad",
+      "slogan": "Penggerak program & pengembangan IDTC",
+      "fokus": [
+        "Fundraising & sustainability",
+        "Koordinasi program kerja",
+        "Publikasi & branding",
+        "Partnership & networking",
+        "Special task"
+      ]
+    },
+    {
+      "id": "sekretariatan",
+      "nama": "Sekretariatan",
+      "slogan": "Administrasi & dukungan operasional",
+      "fokus": [
+        "Administrasi",
+        "Surat-menyurat",
+        "Database anggota",
+        "Notulensi",
+        "Dokumentasi organisasi",
+        "Jadwal & agenda",
+        "Dukungan operasional",
+        "Arsip"
+      ],
+      "tujuan": "Tertib administrasi, lancar koordinasi, dan mendukung seluruh kegiatan IDTC."
+    }
+  ]
+}
