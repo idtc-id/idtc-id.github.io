@@ -2,25 +2,53 @@
   "dewanPembina": {
     "title": "Dewan Pembina",
     "desc": "Arah strategis, nasihat, dan pengawasan.",
-    "ketua": { "nama": "Nazib Faizal", "peran": "Ketua Dewan Pembina" },
+    "ketua": {
+      "nama": "Nazib Faizal",
+      "peran": "Ketua Dewan Pembina",
+      "foto": "assets/img/people/nazib-faizal.jpg"
+    },
     "unit": [
-      { "nama": "Dewan Pengarah", "desc": "Arah strategis dan pengawasan." },
-      { "nama": "Dewan Pakar", "desc": "Kajian ilmiah, riset, dan rekomendasi." }
+      { "nama": "Dewan Pengarah", "desc": "Arah strategis dan pengawasan.", "icon": "compass" },
+      { "nama": "Dewan Pakar", "desc": "Kajian ilmiah, riset, dan rekomendasi.", "icon": "academic" }
     ]
   },
   "pengurus": {
     "title": "Pengurus IDTC 2026–2029",
     "desc": "Kepemimpinan, koordinasi, dan pelaksanaan program.",
-    "ketua": { "nama": "Benni Aguscandra", "peran": "Ketua IDTC" },
+    "ketua": {
+      "nama": "Benni Aguscandra",
+      "peran": "Ketua IDTC",
+      "foto": "assets/img/people/benni-aguscandra.jpg"
+    },
     "wakil": [
-      { "nama": "Komang Sri Hartini", "peran": "Wakil Ketua I" },
-      { "nama": "Syahrudin", "peran": "Wakil Ketua II" }
+      {
+        "nama": "Komang Sri Hartini",
+        "peran": "Wakil Ketua I",
+        "foto": "assets/img/people/komang-sri-hartini.jpg"
+      },
+      {
+        "nama": "Syahrudin",
+        "peran": "Wakil Ketua II",
+        "foto": "assets/img/people/syahrudin.jpg"
+      }
     ],
     "sekjen": [
-      { "nama": "Muhammad Ihsan", "peran": "Sekretaris Jenderal I" },
-      { "nama": "Teguh Fayakun Alif", "peran": "Sekretaris Jenderal II" }
-    ],
-    "sekretariat": { "nama": "Susi Asiatin", "peran": "Ketua Tim Sekretariat" }
+      {
+        "nama": "Muhammad Ihsan",
+        "peran": "Sekretaris Jenderal I",
+        "foto": "assets/img/people/muhammad-ihsan.jpg"
+      },
+      {
+        "nama": "Teguh Fayakun Alif",
+        "peran": "Sekretaris Jenderal II",
+        "foto": "assets/img/people/teguh-fayakun-alif.jpg"
+      },
+      {
+        "nama": "Susi Asiatin",
+        "peran": "Ketua Tim Sekretariat",
+        "foto": "assets/img/people/susi-asiatin.jpg"
+      }
+    ]
   },
   "pokja": [
     {
@@ -29,11 +57,16 @@
       "nama": "Standar & Kebijakan",
       "slogan": "Membangun fondasi tata kelola",
       "warna": "teal",
-      "ketua": { "nama": "Deni Suwardhi", "peran": "Ketua Pokja 1" },
+      "banner": "assets/img/pokja/pokja1.jpg",
+      "ketua": {
+        "nama": "Deni Suwardhi",
+        "peran": "Ketua Pokja 1",
+        "foto": "assets/img/people/deni-suwardhi.jpg"
+      },
       "wakil": [
-        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan", "foto": null },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri", "foto": null },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi", "foto": null }
       ],
       "fokus": [
         "Standardisasi Digital Twin",
@@ -52,11 +85,16 @@
       "nama": "Pilot Project",
       "slogan": "Membuktikan melalui implementasi nyata",
       "warna": "orange",
-      "ketua": { "nama": "Tenty Melvianti Legarias", "peran": "Ketua Pokja 2" },
+      "banner": "assets/img/pokja/pokja2.jpg",
+      "ketua": {
+        "nama": "Tenty Melvianti Legarias",
+        "peran": "Ketua Pokja 2",
+        "foto": "assets/img/people/tenty-melvianti.jpg"
+      },
       "wakil": [
-        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+        { "nama": "", "peran": "Wakil Ketua Pokja – Pemerintahan", "foto": null },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri", "foto": null },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi", "foto": null }
       ],
       "fokus": [
         "Identifikasi pilot project",
@@ -68,7 +106,10 @@
         "Evaluasi manfaat/dampak",
         "Dokumentasi & replikasi"
       ],
-      "output": ["Pilot project Digital Twin yang nyata dan terukur", "Dokumentasi dan model replikasi"]
+      "output": [
+        "Pilot project Digital Twin yang nyata dan terukur",
+        "Dokumentasi dan model replikasi"
+      ]
     },
     {
       "id": "pokja3",
@@ -76,11 +117,20 @@
       "nama": "SDM & Ekosistem",
       "slogan": "Membangun kapasitas dan ekosistem",
       "warna": "purple",
-      "ketua": { "nama": "Gilang Widya Wisaksana", "peran": "Ketua Pokja 3" },
+      "banner": "assets/img/pokja/pokja3.jpg",
+      "ketua": {
+        "nama": "Gilang Widya Wisaksana",
+        "peran": "Ketua Pokja 3",
+        "foto": "assets/img/people/gilang-widya.jpg"
+      },
       "wakil": [
-        { "nama": "Chintia Dewi", "peran": "Wakil Ketua Pokja – Pemerintahan" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri" },
-        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi" }
+        {
+          "nama": "Chintia Dewi",
+          "peran": "Wakil Ketua Pokja – Pemerintahan",
+          "foto": "assets/img/people/chintia-dewi.jpg"
+        },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Swasta/Industri", "foto": null },
+        { "nama": "", "peran": "Wakil Ketua Pokja – Akademisi", "foto": null }
       ],
       "fokus": [
         "Training & workshop",
@@ -101,6 +151,7 @@
       "id": "sapujagad",
       "nama": "Tim Sekjen – Sapujagad",
       "slogan": "Penggerak program & pengembangan IDTC",
+      "banner": "assets/img/pokja/sapujagad.jpg",
       "fokus": [
         "Fundraising & sustainability",
         "Koordinasi program kerja",
@@ -113,6 +164,7 @@
       "id": "sekretariatan",
       "nama": "Sekretariatan",
       "slogan": "Administrasi & dukungan operasional",
+      "banner": "assets/img/pokja/sekretariatan.jpg",
       "fokus": [
         "Administrasi",
         "Surat-menyurat",
