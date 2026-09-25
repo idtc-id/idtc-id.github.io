@@ -424,13 +424,19 @@
   const pf = (n) => nf1.format(n) + "%";
 
   function renderAnggota(d) {
+    // Persentase selalu diturunkan dari jumlah, tidak ditulis manual di JSON —
+    // supaya pemutakhiran data cukup mengubah angka jumlahnya saja.
+    const totalEko = d.ekosistem.reduce((n, e) => n + e.jumlah, 0);
+    const totalInst = d.institusi.reduce((n, i) => n + i.jumlah, 0);
+    const share = (n, total) => (total ? (n / total) * 100 : 0);
+
     // --- KPI ---
     const pemerintahBumn = d.ekosistem[0];
     $("#kpiRow").innerHTML = [
       { v: nf.format(d.respons), l: "Respons pendaftaran", n: "" },
       { v: nf.format(d.namaUnik), l: "Nama unik", n: "setelah duplikat disaring" },
       {
-        v: pf(pemerintahBumn.persen),
+        v: pf(share(pemerintahBumn.jumlah, totalEko)),
         l: "Dari ekosistem pemerintah & BUMN",
         n: nf.format(pemerintahBumn.jumlah) + " orang",
       },
@@ -447,10 +453,10 @@
 
     // --- Stacked bar ekosistem ---
     $("#ekosistemBar").innerHTML = d.ekosistem
-      .map(
-        (e, i) =>
-          `<span style="width:${e.persen}%;background:${SERIES[i]}" title="${esc(e.nama)}: ${nf.format(e.jumlah)} orang (${esc(pf(e.persen))})"></span>`
-      )
+      .map((e, i) => {
+        const p = share(e.jumlah, totalEko);
+        return `<span style="width:${p}%;background:${SERIES[i]}" title="${esc(e.nama)}: ${nf.format(e.jumlah)} orang (${esc(pf(p))})"></span>`;
+      })
       .join("");
 
     $("#ekosistemLegend").innerHTML = d.ekosistem
@@ -459,7 +465,7 @@
           <span class="swatch" style="background:${SERIES[i]}"></span>
           <span>
             <b>${esc(e.nama)}</b>
-            <span class="legend-val">${nf.format(e.jumlah)} orang · ${esc(pf(e.persen))}</span>
+            <span class="legend-val">${nf.format(e.jumlah)} orang · ${esc(pf(share(e.jumlah, totalEko)))}</span>
             <span class="legend-note">${esc(e.rincian)}</span>
           </span>
         </li>`
@@ -467,20 +473,23 @@
       .join("");
 
     // --- Bar list ---
-    function barlist(target, rows, satuan) {
+    function barlist(target, rows, satuan, total) {
       const max = Math.max(...rows.map((r) => r.jumlah));
       $(target).innerHTML = rows
-        .map(
-          (r) => `<li title="${esc(r.nama)}: ${nf.format(r.jumlah)} ${satuan}">
+        .map((r) => {
+          const persen = total ? ` · ${esc(pf(share(r.jumlah, total)))}` : "";
+          return `<li title="${esc(r.nama)}: ${nf.format(r.jumlah)} ${satuan}">
             <span class="bar-label">${esc(r.nama)}</span>
-            <span class="bar-value">${nf.format(r.jumlah)}${r.persen !== undefined ? ` · ${esc(pf(r.persen))}` : ""}</span>
+            <span class="bar-value">${nf.format(r.jumlah)}${persen}</span>
             <span class="bar-track"><span class="bar-fill" style="width:${(r.jumlah / max) * 100}%"></span></span>
-          </li>`
-        )
+          </li>`;
+        })
         .join("");
     }
-    barlist("#institusiChart", d.institusi, "orang");
-    barlist("#sektorChart", d.sektor, "orang");
+    // Sektor tanpa persentase: responden boleh memilih lebih dari satu,
+    // sehingga persentase terhadap total responden akan menyesatkan.
+    barlist("#institusiChart", d.institusi, "orang", totalInst);
+    barlist("#sektorChart", d.sektor, "orang", null);
 
     // --- Tabel institusi terbanyak ---
     $("#topInstitusi tbody").innerHTML = d.topInstitusi
