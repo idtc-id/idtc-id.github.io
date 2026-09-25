@@ -100,6 +100,11 @@
     ".gallery-filters",
     ".gallery-card",
     ".gallery-note",
+    ".kpi",
+    ".viz-card",
+    ".viz-source",
+    ".materi-card",
+    ".materi-cta",
     ".step",
     ".repo-card",
     ".poster-link",
@@ -165,6 +170,12 @@
     openLightbox(
       "assets/img/struktur-grup-whatsapp.jpeg",
       "Poster struktur grup dan fungsi tiap unit IDTC"
+    )
+  );
+  $("#openPosterAnggota").addEventListener("click", () =>
+    openLightbox(
+      "assets/img/profil-anggota.jpeg",
+      "Infografik profil anggota IDTC berdasarkan database pendaftaran"
     )
   );
 
@@ -374,7 +385,7 @@
       .map(
         (it, i) => `
       <article class="gallery-card" style="animation-delay:${Math.min(i * 60, 300)}ms">
-        <div class="gallery-thumb" data-pokja="${esc(it.pokja)}">
+        <div class="gallery-thumb" data-pokja="${esc(it.pokja)}"${it.gambar ? ' data-custom="1"' : ""}>
           <img src="${esc(it.gambar || POKJA_BANNER[it.pokja] || POKJA_BANNER.umum)}"
                alt="${esc(it.judul)}" loading="lazy">
           <span class="gallery-badge">${GLYPH[it.icon] || "✨"} ${esc(it.kategori || "Produk")}</span>
@@ -402,13 +413,163 @@
   });
 
   /* =======================================================
+     Profil anggota — visualisasi data
+     ======================================================= */
+  const SERIES = ["#1e6fd9", "#e8622c", "#0f9b8e", "#6b4fd6"];
+  const nf = new Intl.NumberFormat("id-ID");
+  const nf1 = new Intl.NumberFormat("id-ID", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+  const pf = (n) => nf1.format(n) + "%";
+
+  function renderAnggota(d) {
+    // --- KPI ---
+    const pemerintahBumn = d.ekosistem[0];
+    $("#kpiRow").innerHTML = [
+      { v: nf.format(d.respons), l: "Respons pendaftaran", n: "" },
+      { v: nf.format(d.namaUnik), l: "Nama unik", n: "setelah duplikat disaring" },
+      {
+        v: pf(pemerintahBumn.persen),
+        l: "Dari ekosistem pemerintah & BUMN",
+        n: nf.format(pemerintahBumn.jumlah) + " orang",
+      },
+      { v: nf.format(d.sektor.length), l: "Sektor keahlian", n: "boleh lebih dari satu" },
+    ]
+      .map(
+        (k) => `<li class="kpi">
+          <span class="kpi-value">${esc(k.v)}</span>
+          <span class="kpi-label">${esc(k.l)}</span>
+          ${k.n ? `<span class="kpi-note">${esc(k.n)}</span>` : ""}
+        </li>`
+      )
+      .join("");
+
+    // --- Stacked bar ekosistem ---
+    $("#ekosistemBar").innerHTML = d.ekosistem
+      .map(
+        (e, i) =>
+          `<span style="width:${e.persen}%;background:${SERIES[i]}" title="${esc(e.nama)}: ${nf.format(e.jumlah)} orang (${esc(pf(e.persen))})"></span>`
+      )
+      .join("");
+
+    $("#ekosistemLegend").innerHTML = d.ekosistem
+      .map(
+        (e, i) => `<li>
+          <span class="swatch" style="background:${SERIES[i]}"></span>
+          <span>
+            <b>${esc(e.nama)}</b>
+            <span class="legend-val">${nf.format(e.jumlah)} orang · ${esc(pf(e.persen))}</span>
+            <span class="legend-note">${esc(e.rincian)}</span>
+          </span>
+        </li>`
+      )
+      .join("");
+
+    // --- Bar list ---
+    function barlist(target, rows, satuan) {
+      const max = Math.max(...rows.map((r) => r.jumlah));
+      $(target).innerHTML = rows
+        .map(
+          (r) => `<li title="${esc(r.nama)}: ${nf.format(r.jumlah)} ${satuan}">
+            <span class="bar-label">${esc(r.nama)}</span>
+            <span class="bar-value">${nf.format(r.jumlah)}${r.persen !== undefined ? ` · ${esc(pf(r.persen))}` : ""}</span>
+            <span class="bar-track"><span class="bar-fill" style="width:${(r.jumlah / max) * 100}%"></span></span>
+          </li>`
+        )
+        .join("");
+    }
+    barlist("#institusiChart", d.institusi, "orang");
+    barlist("#sektorChart", d.sektor, "orang");
+
+    // --- Tabel institusi terbanyak ---
+    $("#topInstitusi tbody").innerHTML = d.topInstitusi
+      .map(
+        (t, i) => `<tr>
+          <td class="rank">${i + 1}</td>
+          <td>${esc(t.nama)}</td>
+          <td class="num">${nf.format(t.jumlah)}</td>
+        </tr>`
+      )
+      .join("");
+
+    $("#anggotaSumber").textContent =
+      `Sumber: ${d.sumber} (${nf.format(d.respons)} respons). ${d.catatan}`;
+  }
+
+  /* =======================================================
+     Materi belajar
+     ======================================================= */
+  const materiGrid = $("#materiGrid");
+  const materiRingkas = $("#materiRingkas");
+
+  const STATUS_LABEL = {
+    rencana: "Rencana",
+    draf: "Draf",
+    "siap-uji": "Siap uji",
+    teruji: "Teruji",
+  };
+
+  function renderMateri(d) {
+    materiGrid.innerHTML = d.jalur
+      .map((j) => {
+        const tersedia = j.modul.filter((m) => m.tautan).length;
+        const persen = j.modul.length ? Math.round((tersedia / j.modul.length) * 100) : 0;
+
+        const items = j.modul
+          .map((m, i) => {
+            const judul = m.tautan
+              ? `<a href="${esc(m.tautan)}" target="_blank" rel="noopener">${esc(m.judul)}</a>`
+              : esc(m.judul);
+            return `<li>
+              <span class="materi-num">${i + 1}</span>
+              <span class="materi-modul">
+                ${judul}
+                <span class="materi-meta">${esc(m.tingkat)}<span class="materi-status" data-status="${esc(m.status)}">${esc(STATUS_LABEL[m.status] || m.status)}</span></span>
+              </span>
+            </li>`;
+          })
+          .join("");
+
+        return `
+        <article class="materi-card" data-warna="${esc(j.warna)}">
+          <div class="materi-card__head">
+            <span class="materi-kode">${esc(j.kode)}</span>
+            <span>
+              <h3>${esc(j.nama)}</h3>
+              <p class="materi-sasaran">${esc(j.sasaran)}</p>
+            </span>
+          </div>
+          <ul class="materi-list">${items}</ul>
+          <div class="materi-card__foot">
+            <div class="materi-progress"><span style="width:${persen}%"></span></div>
+            ${tersedia} dari ${j.modul.length} modul tersedia
+          </div>
+        </article>`;
+      })
+      .join("");
+
+    const total = d.jalur.reduce((n, j) => n + j.modul.length, 0);
+    const siap = d.jalur.reduce((n, j) => n + j.modul.filter((m) => m.tautan).length, 0);
+    materiRingkas.textContent =
+      siap === 0
+        ? `Kurikulum ${total} modul sudah dirancang, penyusunan materinya baru dimulai. Pokja 3 membuka kesempatan bagi anggota yang ingin menyusun modul atau menjadi pemateri.`
+        : `${siap} dari ${total} modul sudah tersedia. Sisanya sedang disusun — kontribusi anggota terbuka lebar.`;
+
+    if (d.repo) $("#materiRepoLink").href = d.repo;
+    if (d.handbook) $("#materiHandbookLink").href = d.handbook;
+  }
+
+  /* =======================================================
      Load data
      ======================================================= */
   Promise.all([
     fetch("data/struktur.json").then((r) => r.json()),
     fetch("data/produk.json").then((r) => r.json()),
+    fetch("data/materi.json").then((r) => r.json()),
+    fetch("data/anggota.json").then((r) => r.json()),
   ])
-    .then(([struktur, produk]) => {
+    .then(([struktur, produk, materi, anggota]) => {
       strukturData = struktur;
       produkData = produk;
 
@@ -416,6 +577,8 @@
       renderPokjaCards(struktur);
       renderUnitPendukung(struktur);
       renderGallery("all");
+      renderMateri(materi);
+      renderAnggota(anggota);
 
       applyReveal(document);
       onScroll();
@@ -427,5 +590,6 @@
       strukturPanel.innerHTML = msg;
       pokjaGrid.innerHTML = msg;
       galleryGrid.innerHTML = msg;
+      materiGrid.innerHTML = msg;
     });
 })();

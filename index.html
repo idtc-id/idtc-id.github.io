@@ -36,9 +36,11 @@
 
     <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
       <a href="#tentang">Tentang</a>
+      <a href="#anggota">Anggota</a>
       <a href="#struktur">Struktur</a>
       <a href="#pokja">Pokja</a>
       <a href="#galeri">Galeri</a>
+      <a href="#materi">Materi Belajar</a>
       <a href="#bergabung">Bergabung</a>
       <a href="https://github.com/idtc-id" target="_blank" rel="noopener" class="nav-cta">
         <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
@@ -157,8 +159,65 @@
     </div>
   </section>
 
+  <!-- ============ PROFIL ANGGOTA ============ -->
+  <section class="section section-alt" id="anggota">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Profil Anggota</span>
+        <h2 class="section-title">Satu ekosistem, banyak perspektif</h2>
+        <p class="section-lead">
+          Gambaran anggota IDTC berdasarkan database pendaftaran — dari mana mereka berasal
+          dan bidang apa yang mereka tekuni.
+        </p>
+      </div>
+
+      <ul class="kpi-row" id="kpiRow"></ul>
+
+      <div class="viz-card">
+        <h3 class="viz-title">Komposisi ekosistem anggota</h3>
+        <p class="viz-sub">Bagian dari 254 responden</p>
+        <div class="stackbar" id="ekosistemBar" role="img" aria-label="Komposisi ekosistem anggota IDTC"></div>
+        <ul class="stack-legend" id="ekosistemLegend"></ul>
+      </div>
+
+      <div class="viz-duo">
+        <div class="viz-card">
+          <h3 class="viz-title">Anggota menurut jenis institusi</h3>
+          <p class="viz-sub">Jumlah responden</p>
+          <ul class="barlist" id="institusiChart"></ul>
+        </div>
+
+        <div class="viz-card">
+          <h3 class="viz-title">Sektor yang ditekuni anggota</h3>
+          <p class="viz-sub">Jumlah responden · boleh memilih lebih dari satu sektor</p>
+          <ul class="barlist barlist--alt" id="sektorChart"></ul>
+        </div>
+      </div>
+
+      <div class="viz-card">
+        <h3 class="viz-title">Sepuluh institusi dengan anggota terbanyak</h3>
+        <p class="viz-sub">Jumlah responden per institusi</p>
+        <div class="table-wrap">
+          <table class="data-table" id="topInstitusi">
+            <thead>
+              <tr><th scope="col">#</th><th scope="col">Institusi</th><th scope="col" class="num">Anggota</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="viz-source" id="anggotaSumber"></p>
+
+      <button class="poster-link" id="openPosterAnggota" type="button">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4 17 5-4 4 3 3-2 4 3"/></svg>
+        Lihat infografik profil anggota selengkapnya
+      </button>
+    </div>
+  </section>
+
   <!-- ============ STRUKTUR ORGANISASI ============ -->
-  <section class="section section-alt" id="struktur">
+  <section class="section" id="struktur">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Struktur Kepengurusan 2026–2029</span>
@@ -184,7 +243,7 @@
   </section>
 
   <!-- ============ POKJA ============ -->
-  <section class="section" id="pokja">
+  <section class="section section-alt" id="pokja">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Kelompok Kerja</span>
@@ -208,7 +267,7 @@
   </section>
 
   <!-- ============ GALERI PRODUK ============ -->
-  <section class="section section-alt" id="galeri">
+  <section class="section" id="galeri">
     <div class="container">
       <div class="section-head">
         <span class="section-tag">Galeri Produk Pokja</span>
@@ -236,6 +295,35 @@
     </div>
   </section>
 
+  <!-- ============ MATERI BELAJAR ============ -->
+  <section class="section section-alt" id="materi">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Materi Belajar</span>
+        <h2 class="section-title">Tiga jalur belajar Digital Twin</h2>
+        <p class="section-lead">
+          Program pembelajaran IDTC disusun per peran, bukan satu kelas untuk semua. Pilih jalur
+          yang sesuai pekerjaan Anda. Seluruh modul diterbitkan terbuka dengan lisensi CC BY 4.0.
+        </p>
+      </div>
+
+      <div id="materiGrid" class="materi-grid"></div>
+
+      <div class="materi-cta">
+        <p id="materiRingkas" class="materi-ringkas"></p>
+        <div class="materi-actions">
+          <a class="btn btn-solid" id="materiRepoLink" href="https://github.com/idtc-id/materi-belajar" target="_blank" rel="noopener">
+            Buka repo materi-belajar
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn-outline" id="materiHandbookLink" href="https://github.com/idtc-id/pokja3-handbook" target="_blank" rel="noopener">
+            Cara mengusulkan kelas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ BERGABUNG ============ -->
   <section class="section" id="bergabung">
     <div class="container">
@@ -253,10 +341,9 @@
         </li>
         <li class="step">
           <span class="step-num">2</span>
-          <h3>Baca panduan untuk pemula</h3>
-          <p>Pelajari alur kerja dasar di
-            <a href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">pokja2-handbook</a>
-            sebelum mulai berkontribusi.</p>
+          <h3>Baca handbook Pokja Anda</h3>
+          <p>Tiap Pokja punya buku pegangan sendiri berisi alur kerja dan cara berkontribusi —
+            tautannya ada di kartu di bawah.</p>
         </li>
         <li class="step">
           <span class="step-num">3</span>
@@ -267,12 +354,33 @@
       </ol>
 
       <div class="repo-links">
+        <a class="repo-card" href="https://github.com/idtc-id/pokja1-handbook" target="_blank" rel="noopener">
+          <span class="repo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6.5A2.5 2.5 0 0 0 4 22.5"/><path d="M8 7h7M8 11h7"/></svg>
+          </span>
+          <strong>pokja1-handbook</strong>
+          <span class="repo-desc">Pokja 1 — alur penyusunan standar, kebijakan dokumen, dan usulan topik.</span>
+        </a>
         <a class="repo-card" href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">
           <span class="repo-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6.5A2.5 2.5 0 0 0 4 22.5"/><path d="M8 7h7M8 11h7"/></svg>
           </span>
           <strong>pokja2-handbook</strong>
-          <span class="repo-desc">Tujuan, alur kerja, seleksi pilot, kebijakan data, dan diskusi komunitas.</span>
+          <span class="repo-desc">Pokja 2 — alur kerja pilot, seleksi pilot, kebijakan data, dan diskusi komunitas.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/idtc-id/pokja3-handbook" target="_blank" rel="noopener">
+          <span class="repo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h13v16H6.5A2.5 2.5 0 0 0 4 22.5"/><path d="M8 7h7M8 11h7"/></svg>
+          </span>
+          <strong>pokja3-handbook</strong>
+          <span class="repo-desc">Pokja 3 — program pembelajaran, sertifikasi, expert session, dan riset.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/idtc-id/standar-dan-panduan" target="_blank" rel="noopener">
+          <span class="repo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+          </span>
+          <strong>standar-dan-panduan</strong>
+          <span class="repo-desc">Standar, guideline, framework, dan policy brief terbitan Pokja 1.</span>
         </a>
         <a class="repo-card" href="https://github.com/idtc-id/pilot-template" target="_blank" rel="noopener">
           <span class="repo-icon">
@@ -305,15 +413,20 @@
     <div class="footer-links">
       <h4>Jelajahi</h4>
       <a href="#tentang">Tentang</a>
+      <a href="#anggota">Profil Anggota</a>
       <a href="#struktur">Struktur Organisasi</a>
       <a href="#pokja">Kelompok Kerja</a>
       <a href="#galeri">Galeri Produk</a>
+      <a href="#materi">Materi Belajar</a>
     </div>
     <div class="footer-links">
       <h4>GitHub</h4>
       <a href="https://github.com/idtc-id" target="_blank" rel="noopener">Organisasi idtc-id</a>
+      <a href="https://github.com/idtc-id/pokja1-handbook" target="_blank" rel="noopener">Pokja 1 Handbook</a>
       <a href="https://github.com/idtc-id/pokja2-handbook" target="_blank" rel="noopener">Pokja 2 Handbook</a>
-      <a href="https://github.com/idtc-id/pilot-template" target="_blank" rel="noopener">Pilot Template</a>
+      <a href="https://github.com/idtc-id/pokja3-handbook" target="_blank" rel="noopener">Pokja 3 Handbook</a>
+      <a href="https://github.com/idtc-id/standar-dan-panduan" target="_blank" rel="noopener">Standar &amp; Panduan</a>
+      <a href="https://github.com/idtc-id/materi-belajar" target="_blank" rel="noopener">Materi Belajar</a>
     </div>
   </div>
   <div class="footer-bottom">

@@ -23,7 +23,9 @@ idtc-id.github.io/
 │       └── struktur-*.jpeg # Poster resmi (dibuka lewat lightbox)
 └── data/
     ├── struktur.json       # Data struktur kepengurusan & Pokja (dipakai main.js)
-    └── produk.json         # Data galeri produk Pokja
+    ├── produk.json         # Data galeri produk Pokja
+    ├── materi.json         # Jalur belajar & daftar modul (section Materi Belajar)
+    └── anggota.json        # Statistik profil anggota (section Profil Anggota)
 ```
 
 Situs ini murni HTML/CSS/JS statis — tidak ada proses build. Cocok untuk GitHub Pages.
@@ -71,6 +73,48 @@ Galeri Produk Pokja (`#galeri`) dibaca dari `data/produk.json`. Untuk menambah i
   - `icon`: glyph kecil pada label kategori — pilihan: `book`, `template`, `dataset`,
     `guide`, `video`, atau tambahkan di objek `GLYPH` pada `assets/js/main.js`.
 3. Buka Pull Request ke branch `main`.
+
+## Memperbarui section Profil Anggota
+
+Section `#anggota` dibaca dari `data/anggota.json` — semua grafik digambar dari angka di berkas
+itu, tidak ada nilai yang ditulis langsung di HTML. Saat database pendaftaran diperbarui, ganti
+angkanya di sini.
+
+Kunci yang dipakai: `respons`, `namaUnik`, `sumber`, `catatan`, lalu empat larik —
+`ekosistem` (urutannya menentukan urutan segmen dan warna), `institusi`, `sektor`, dan
+`topInstitusi`. Lebar tiap bar dihitung relatif terhadap nilai terbesar dalam lariknya.
+
+Catatan desain grafik (jangan diubah tanpa alasan):
+
+- **Warna seri** (`#1e6fd9`, `#e8622c`, `#0f9b8e`, `#6b4fd6`) sudah divalidasi terhadap
+  permukaan kartu putih untuk keterbacaan penyandang buta warna. Kalau menambah kategori
+  ekosistem kelima, validasi ulang — jangan sekadar menambah warna baru.
+- **Tiap bar chart memakai satu warna**, bukan gradasi menurut nilai. Panjang bar sudah
+  menyatakan besarannya; mewarnai bar sesuai nilai hanya menduplikasi informasi yang sama.
+- **Nilai kategori ekosistem ada di legenda**, bukan di dalam segmen — segmen terkecil (2,8%)
+  terlalu sempit untuk memuat teks tanpa terpotong.
+- Pastikan `sum(institusi.jumlah)` dan `sum(ekosistem.jumlah)` sama dengan `respons`.
+  Jumlah `sektor` memang melebihi `respons` karena boleh memilih lebih dari satu.
+
+## Memperbarui section Materi Belajar
+
+Section `#materi` dibaca dari `data/materi.json`. Strukturnya: tiga `jalur`, masing-masing berisi
+daftar `modul`.
+
+```json
+{
+  "judul": "Integrasi BIM–GIS",
+  "tingkat": "Menengah",
+  "status": "teruji",
+  "tautan": "https://github.com/idtc-id/materi-belajar/tree/main/modul/DT-M-B05-bim-gis"
+}
+```
+
+- `status`: `rencana`, `draf`, `siap-uji`, atau `teruji` — menentukan warna label.
+- `tautan`: isi saat modulnya sudah terbit. Modul bertautan dihitung sebagai "tersedia" pada
+  bilah kemajuan tiap jalur, dan judulnya otomatis menjadi tautan.
+- Untuk menambah jalur baru, tambahkan objek ke `jalur` dengan `warna` `teal`, `orange`, atau
+  `purple`.
 
 ## Memperbarui struktur organisasi
 
