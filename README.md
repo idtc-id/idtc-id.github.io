@@ -76,25 +76,43 @@ Galeri Produk Pokja (`#galeri`) dibaca dari `data/produk.json`. Untuk menambah i
 
 ## Memperbarui section Profil Anggota
 
-Section `#anggota` dibaca dari `data/anggota.json` — semua grafik digambar dari angka di berkas
-itu, tidak ada nilai yang ditulis langsung di HTML. Saat database pendaftaran diperbarui, ganti
-angkanya di sini.
+Section `#anggota` dibaca dari `data/anggota.json`. Semua grafik digambar dari angka di berkas
+itu — tidak ada nilai yang ditulis di HTML, dan **tidak ada persentase yang perlu dihitung
+manual**. Yang Anda ubah hanya angka `jumlah`.
 
-Kunci yang dipakai: `respons`, `namaUnik`, `sumber`, `catatan`, lalu empat larik —
-`ekosistem` (urutannya menentukan urutan segmen dan warna), `institusi`, `sektor`, dan
-`topInstitusi`. Lebar tiap bar dihitung relatif terhadap nilai terbesar dalam lariknya.
+### Yang diubah saat ada data baru
 
-Catatan desain grafik (jangan diubah tanpa alasan):
+1. `respons` dan `namaUnik` — total responden dan nama unik.
+2. `ekosistem[].jumlah` — empat kategori, jumlahnya harus sama dengan `respons`.
+3. `institusi[].jumlah` — jumlahnya juga harus sama dengan `respons`.
+4. `sektor[].jumlah` — boleh melebihi `respons` (responden bisa memilih lebih dari satu).
+5. `topInstitusi` — sepuluh institusi teratas, urutkan ulang bila peringkatnya berubah.
+
+Persentase, lebar bar, dan bilah kemajuan dihitung otomatis. Urutkan tiap larik dari besar ke
+kecil supaya grafiknya mudah dibaca.
+
+### Periksa sebelum merge
+
+```bash
+python tools/cek-data.py
+```
+
+Skrip ini memeriksa total, field yang seharusnya tidak ada, status yang tidak dikenal, dan
+berkas gambar yang hilang. Skrip yang sama juga berjalan otomatis di setiap Pull Request lewat
+GitHub Actions (`.github/workflows/cek-data.yml`), jadi kesalahan angka ketahuan sebelum tayang.
+
+### Catatan desain grafik (jangan diubah tanpa alasan)
 
 - **Warna seri** (`#1e6fd9`, `#e8622c`, `#0f9b8e`, `#6b4fd6`) sudah divalidasi terhadap
-  permukaan kartu putih untuk keterbacaan penyandang buta warna. Kalau menambah kategori
-  ekosistem kelima, validasi ulang — jangan sekadar menambah warna baru.
+  permukaan kartu putih untuk keterbacaan penyandang buta warna. Menambah kategori ekosistem
+  kelima berarti harus memvalidasi ulang seluruh set warna — jangan sekadar menambah warna baru.
+  Skrip pemeriksa akan menolak bila kategori ekosistem lebih dari empat.
 - **Tiap bar chart memakai satu warna**, bukan gradasi menurut nilai. Panjang bar sudah
   menyatakan besarannya; mewarnai bar sesuai nilai hanya menduplikasi informasi yang sama.
 - **Nilai kategori ekosistem ada di legenda**, bukan di dalam segmen — segmen terkecil (2,8%)
   terlalu sempit untuk memuat teks tanpa terpotong.
-- Pastikan `sum(institusi.jumlah)` dan `sum(ekosistem.jumlah)` sama dengan `respons`.
-  Jumlah `sektor` memang melebihi `respons` karena boleh memilih lebih dari satu.
+- **Sektor sengaja tanpa persentase.** Responden boleh memilih lebih dari satu sektor, sehingga
+  persentase terhadap total responden akan menyesatkan.
 
 ## Memperbarui section Materi Belajar
 
