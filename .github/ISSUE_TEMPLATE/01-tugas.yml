@@ -1,0 +1,36 @@
+name: Tugas / pekerjaan
+description: Pekerjaan konkret yang perlu dikerjakan
+title: "[Tugas] "
+labels: ["tugas"]
+body:
+  - type: textarea
+    id: deskripsi
+    attributes:
+      label: Deskripsi tugas
+      description: Apa yang perlu dikerjakan?
+    validations:
+      required: true
+  - type: dropdown
+    id: tahap
+    attributes:
+      label: Tahap pilot
+      options:
+        - 1. Identifikasi
+        - 2. Seleksi lokasi/mitra
+        - 3. Perencanaan
+        - 4. Integrasi data & teknologi
+        - 5. Implementasi
+        - 6. Pengujian
+        - 7. Evaluasi manfaat/dampak
+        - 8. Dokumentasi & replikasi
+  - type: textarea
+    id: selesai
+    attributes:
+      label: Kriteria selesai
+      description: Kapan tugas ini dianggap selesai?
+      placeholder: "- [ ] ...\n- [ ] ..."
+  - type: input
+    id: tenggat
+    attributes:
+      label: Target tanggal
+      placeholder: "mis. 30 Oktober 2026"
