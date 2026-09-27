@@ -1,0 +1,24 @@
+name: Laporan masalah
+description: Ada yang salah atau tidak berjalan
+title: "[Masalah] "
+labels: ["masalah"]
+body:
+  - type: textarea
+    id: masalah
+    attributes:
+      label: Apa masalahnya?
+    validations:
+      required: true
+  - type: textarea
+    id: langkah
+    attributes:
+      label: Langkah untuk mereproduksi
+      placeholder: "1. ...\n2. ..."
+  - type: textarea
+    id: harapan
+    attributes:
+      label: Hasil yang diharapkan
+  - type: textarea
+    id: lampiran
+    attributes:
+      label: Screenshot / log (hapus data sensitif)
