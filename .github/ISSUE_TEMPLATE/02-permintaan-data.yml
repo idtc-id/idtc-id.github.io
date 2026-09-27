@@ -1,0 +1,44 @@
+name: Permintaan / pendaftaran data
+description: Meminta akses data atau mendaftarkan dataset ke katalog
+title: "[Data] "
+labels: ["data"]
+body:
+  - type: dropdown
+    id: jenis
+    attributes:
+      label: Jenis permintaan
+      options:
+        - Mendaftarkan dataset baru ke katalog
+        - Meminta akses ke dataset
+        - Melaporkan masalah pada dataset
+    validations:
+      required: true
+  - type: input
+    id: nama
+    attributes:
+      label: Nama dataset
+      placeholder: "mis. Point cloud LiDAR Kota X 2025"
+    validations:
+      required: true
+  - type: input
+    id: pemilik
+    attributes:
+      label: Pemilik / sumber data
+  - type: input
+    id: format
+    attributes:
+      label: Format & perkiraan ukuran
+      placeholder: "mis. LAZ, 120 GB"
+  - type: dropdown
+    id: izin
+    attributes:
+      label: Status izin
+      options:
+        - Data terbuka
+        - Terbatas — izin tertulis sudah ada
+        - Terbatas — izin belum ada
+        - Belum tahu
+  - type: textarea
+    id: kegunaan
+    attributes:
+      label: Kegunaan dalam pilot
