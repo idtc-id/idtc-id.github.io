@@ -97,6 +97,7 @@
     ".subsection-title",
     ".pokja-card",
     ".unit-card",
+    ".platform-card",
     ".gallery-filters",
     ".gallery-card",
     ".gallery-note",
